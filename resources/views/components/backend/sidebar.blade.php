@@ -5,8 +5,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <h1 class="navbar-brand navbar-brand-autodark">
-            <a href=".">
-                <img src="{{ asset('static/logo-dark.svg') }}" width="100%" height="100%" alt="Tabler">
+            <a href="{{ route('home') }}" class="px-3">
+                <img src="{{ asset('static/ryoogen.svg') }}" width="100%" height="100%" alt="Tabler">
             </a>
         </h1>
         <div class="navbar-nav flex-row d-lg-none">
