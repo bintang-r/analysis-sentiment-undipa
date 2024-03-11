@@ -14,3 +14,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::redirect('/', '/login');
+
+Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')->group(function () {
+    /**
+     * beranda / home
+     */
+    Route::get('beranda', Home\Index::class)->name('home')
+        ->middleware('roles:admin,user');
+
+});

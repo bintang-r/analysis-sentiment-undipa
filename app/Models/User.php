@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -46,4 +45,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    // GET AVATAR URL
+    public function avatarUrl()
+    {
+        return $this->avatar
+            ? url('storage/' . $this->avatar)
+            : 'https://gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=1024';
+    }
 }
