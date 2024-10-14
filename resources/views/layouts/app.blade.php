@@ -15,5 +15,4 @@
             {{ $slot }}
         </x-backend.content>
     </div>
-
 @endsection
