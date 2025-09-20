@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('role');
+            $table->boolean('status')->default(true)->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->timestamp('last_login_time')->nullable();
             $table->string('last_login_ip')->nullable();

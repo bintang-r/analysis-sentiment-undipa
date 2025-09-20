@@ -20,12 +20,12 @@ Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')
      * beranda / home
      */
     Route::get('beranda', Home\Index::class)->name('home')
-        ->middleware('roles:admin,user');
+        ->middleware('roles:superadmin,admin,user');
 
     /**
      * setting
      */
-    Route::prefix('pengaturan')->name('setting.')->middleware('roles:admin,user')->namespace('Setting')->group(function () {
+    Route::prefix('pengaturan')->name('setting.')->middleware('roles:superadmin,admin,user')->namespace('Setting')->group(function () {
         Route::redirect('/', 'pengaturan/aplikasi');
 
         /**
