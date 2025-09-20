@@ -10,9 +10,9 @@
             <div class="row align-items-center g-4">
                 <div class="col-lg">
                     <div class="container-tight">
-                        <div class="text-center mb-4">
-                            <a href="." class="navbar-brand navbar-brand-autodark">
-                                <img src="{{ asset('static/ryoogen.svg') }}" alt="">
+                        <div class="text-center mb-5">
+                            <a href="{{ route('login') }}" class="navbar-brand navbar-brand-autodark">
+                                <img style="width: 320px" src="{{ asset(config('const.logo.light')) }}" alt="logo-aplikasi">
                             </a>
                         </div>
 
@@ -23,10 +23,8 @@
                                         <div class="me-3">
                                             <h1 class="text-warning las la-exclamation-triangle"></h1>
                                         </div>
-
                                         <div>
                                             <h4 class="alert-title">Ada yang salah.</h4>
-
                                             <div class="text-muted">
                                                 @foreach ($errors->all() as $error)
                                                     <p> - {{ $error }}</p>
