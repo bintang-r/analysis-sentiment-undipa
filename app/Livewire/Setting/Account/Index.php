@@ -29,7 +29,7 @@ class Index extends Component
                 'required',
                 'unique:users,username,' . $this->userId,
                 'min:3',
-                'max:12',
+                'max:20',
                 'regex:/\w*$/',
             ],
             'surel' => [
