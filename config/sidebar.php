@@ -7,7 +7,7 @@ return [
         'route-name' => 'home',
         'is-active' => 'home',
         'description' => 'Untuk melihat ringkasan aplikasi.',
-        'roles' => ['admin', 'user'],
+        'roles' => ['superadmin', 'admin', 'user'],
     ],
 
     [
@@ -16,7 +16,7 @@ return [
         'icon' => 'cog',
         'route-name' => 'setting.profile.index',
         'is-active' => 'setting*',
-        'roles' => ['admin', 'user'],
+        'roles' => ['superadmin', 'admin', 'user'],
         'sub-menus' => [
             [
                 'title' => 'Profil',
