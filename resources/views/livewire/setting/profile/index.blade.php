@@ -12,20 +12,20 @@
             <div class="card">
                 <div class="card-body p-4 text-center">
                     <span class="avatar avatar-xl mb-3 avatar-rounded"
-                        style="background-image: url({{ auth()->user()->avatarUrl() ? auth()->user()->avatarUrl() : asset('storage/' . auth()->user()->avatar) }})"></span>
+                        style="background-image: url({{ auth()->user()->avatarUrl() ?? '-' }})"></span>
 
-                    <h3 class="m-0 mb-1">{{ auth()->user()->name }}
-                    </h3>
+                    <h3 class="m-0 mb-1">{{ auth()->user()->username ?? '-' }}</h3>
 
                     <div class="text-muted">{{ auth()->user()->email ?? '-' }}</div>
 
                     <div class="mt-3">
-                        <span class="badge bg-green-lt">{{ auth()->user()->roles ?? '-' }}</span>
+                        <span
+                            class="badge bg-green-lt">{{ ucwords(str_replace('-', ' ', auth()->user()->role)) ?? '-' }}</span>
                     </div>
                 </div>
-
                 <div class="btn-group" role="group" aria-label="Basic example">
                     <a href="{{ route('setting.profile.index') }}" class="btn btn-card py-3 btn-square">Profil</a>
+
                     <a href="{{ route('setting.account.index') }}" class="btn btn-card py-3 btn-square">Akun</a>
                 </div>
             </div>
