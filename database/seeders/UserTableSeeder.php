@@ -13,30 +13,30 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $users = [
+        $developer = [
             [
-                'username' => 'Bintang Admin',
+                'username' => 'Bintang Dev',
                 'email' => 'muhbintang650@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('bintang123'),
                 'role' => 'developer',
             ],
             [
-                'username' => 'Fery Admin',
+                'username' => 'Fery Dev',
                 'email' => 'feryfadulrahman@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('fery123'),
                 'role' => 'developer',
             ],
             [
-                'username' => 'Akbar Admin',
+                'username' => 'Akbar Dev',
                 'email' => 'akbar@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('akbar123'),
                 'role' => 'developer',
             ],
             [
-                'username' => 'Ugha Admin',
+                'username' => 'Ugha Dev',
                 'email' => 'ugha@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('ugha123'),
@@ -44,7 +44,35 @@ class UserTableSeeder extends Seeder
             ]
         ];
 
-        foreach ($users as $user) {
+        $testUser = [
+            [
+                'username' => 'Test Admin',
+                'email' => 'testadmin@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('test123'),
+                'role' => 'admin',
+            ],
+            [
+                'username' => 'Test Superadmin',
+                'email' => 'testsuperadmin@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('test123'),
+                'role' => 'superadmin',
+            ],
+            [
+                'username' => 'Test User',
+                'email' => 'testuser@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('test123'),
+                'role' => 'user',
+            ],
+        ];
+
+        foreach ($developer as $user) {
+            User::create($user);
+        }
+
+        foreach ($testUser as $user) {
             User::create($user);
         }
     }

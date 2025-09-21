@@ -31,7 +31,7 @@ Route::middleware('auth', 'verified', 'force.logout')
          */
         Route::prefix('pengguna')
             ->name('user.')
-            ->middleware('roles:superadmin')
+            ->middleware('roles:developer,superadmin,admin')
             ->group(function () {
                 Route::get('/', User\Index::class)->name('index');
                 Route::get('/tambah', User\Create::class)->name('create');

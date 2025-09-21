@@ -46,6 +46,19 @@ class Index extends Component
         return redirect()->back();
     }
 
+    public function changeStatus($id)
+    {
+        $user = User::find($id);
+        $user->email_verified_at = $user->email_verified_at ? null : now();
+        $user->save();
+
+        session()->flash('alert', [
+            'type' => 'success',
+            'message' => 'Berhasil!',
+            'detail' => "Berhasil mengubah status pengguna.",
+        ]);
+    }
+
     #[On('muat-ulang')]
     #[Computed()]
     public function rows()

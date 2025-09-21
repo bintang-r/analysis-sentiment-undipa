@@ -24,14 +24,23 @@
 
                     <x-form.input wire:model="kataSandi" name="kataSandi" label="Kata Sandi (Password)"
                         placeholder="**********" type="password" required />
+
+                    <x-form.input wire:model="konfirmasiKataSandi" name="konfirmasiKataSandi"
+                        label="Konfirmasi Kata Sandi (Password)" placeholder="**********" type="password" required />
                 </div>
 
                 <div class="col-12 col-lg-6">
                     <x-form.input wire:model="email" name="email" label="Masukkan Email" placeholder="masukkan email"
                         type="text" required />
 
-                    <x-form.input wire:model="konfirmasiKataSandi" name="konfirmasiKataSandi"
-                        label="Konfirmasi Kata Sandi (Password)" placeholder="**********" type="password" required />
+                    @if (auth()->user()->role == 'developer')
+                        <x-form.select wire:model.lazy="role" name="role" label="Level" required>
+                            <option value="">- pilih level -</option>
+                            @foreach (config('const.visible_roles') as $dataRole)
+                                <option value="{{ $dataRole }}">{{ ucwords($dataRole) }}</option>
+                            @endforeach
+                        </x-form.select>
+                    @endif
                 </div>
             </div>
         </div>

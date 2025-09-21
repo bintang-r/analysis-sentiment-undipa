@@ -8,6 +8,12 @@ return [
         'user',
     ],
 
+    'visible_roles' => [
+        'superadmin',
+        'admin',
+        'user',
+    ],
+
     "logo" => [
         "light" => env("LOGO_LIGHT", 'ryoogenmedia/logo/LOGO 1.svg'),
         "transparent" => env("LOGO_TRANSPARENT", 'ryoogenmedia/logo/LOGO 2.svg'),

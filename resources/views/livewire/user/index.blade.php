@@ -47,7 +47,12 @@
                         </th>
 
                         <th>
-                            <x-datatable.column-sort name="Admin" wire:click="sortBy('username')" :direction="$sorts['username'] ?? null" />
+                            <x-datatable.column-sort name="Nama Pengguna" wire:click="sortBy('username')"
+                                :direction="$sorts['username'] ?? null" />
+                        </th>
+
+                        <th>
+                            <x-datatable.column-sort name="Level" wire:click="sortBy('role')" :direction="$sorts['role'] ?? null" />
                         </th>
 
                         <th>
@@ -108,12 +113,31 @@
                                 </div>
                             </td>
 
+                            <td>
+                                <span @class([
+                                    'badge',
+                                    'bg-orange' => $row->role == 'user',
+                                    'bg-lime' => $row->role == 'admin',
+                                    'bg-green' => $row->role == 'superadmin',
+                                    'bg-blue' => $row->role == 'developer',
+                                ])>{{ $row->role }}</span>
+                            </td>
+
                             <td>{{ $row->email ?? '-' }}</td>
 
-                            <td>
-                                <span class="badge bg-{{ $row->email_verified_at ? 'lime' : 'red' }}">
-                                    {{ $row->email_verified_at ? 'aktif' : 'nonaktif' }}
-                                </span>
+                            <td style="width: 90px" class="px-4">
+                                @if (auth()->user()->role == 'developer')
+                                    <button wire:click="changeStatus({{ $row->id }})"
+                                        class="btn btn-{{ $row->email_verified_at ? 'green' : 'dark' }}"
+                                        type="button">
+                                        {{ $row->email_verified_at ? 'Aktif' : 'Nonaktif' }} <i
+                                            class="las la-redo-alt ms-1 fw-bold fs-2"></i>
+                                    </button>
+                                @else
+                                    <span class="badge bg-{{ $row->email_verified_at ? 'lime' : 'red' }}">
+                                        {{ $row->email_verified_at ? 'aktif' : 'nonaktif' }}
+                                    </span>
+                                @endif
                             </td>
 
                             <td>

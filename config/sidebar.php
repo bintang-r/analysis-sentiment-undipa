@@ -16,7 +16,7 @@ return [
         'route-name' => 'user.index',
         'is-active' => 'user.index',
         'description' => 'Untuk melihat pengguna aplikasi.',
-        'roles' => ['superadmin'],
+        'roles' => ['developer', 'superadmin', 'admin'],
     ],
 
     [
