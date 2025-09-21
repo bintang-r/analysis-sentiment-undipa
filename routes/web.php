@@ -27,6 +27,18 @@ Route::middleware('auth', 'verified', 'force.logout')
             ->middleware('roles:developer,superadmin,admin,user');
 
         /**
+         * Pengguna / User
+         */
+        Route::prefix('pengguna')
+            ->name('user.')
+            ->middleware('roles:superadmin')
+            ->group(function () {
+                Route::get('/', User\Index::class)->name('index');
+                Route::get('/tambah', User\Create::class)->name('create');
+                Route::get('/sunting/{id}', User\Edit::class)->name('edit');
+            });
+
+        /**
          * pengaturan / setting
          */
         Route::prefix('pengaturan')
@@ -35,7 +47,7 @@ Route::middleware('auth', 'verified', 'force.logout')
             ->group(function () {
                 Route::redirect('/', 'pengaturan/aplikasi');
 
-                /**
+                /**1
                  * profil / profile
                  */
                 Route::prefix('profil')->name('profile.')->group(function () {
