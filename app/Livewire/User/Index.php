@@ -57,6 +57,8 @@ class Index extends Component
                     ->orWhere('email', 'LIKE', "%$search%");
             })->latest();
 
+        $query = secret_user($query);
+
         return $this->applyPagination($query);
     }
 

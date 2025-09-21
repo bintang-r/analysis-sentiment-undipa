@@ -20,7 +20,7 @@
             {
                 "scope": "entity.name.function",
                 "settings": {
-                    "foreground": "#0a47a2"
+                    // "foreground": "#0a47a2"
                 }
             }
         ]

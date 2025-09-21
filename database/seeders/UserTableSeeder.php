@@ -30,7 +30,7 @@ class UserTableSeeder extends Seeder
             ],
             [
                 'username' => 'Akbar Admin',
-                'email' => 'akbaradmin123@gmail.com',
+                'email' => 'akbar@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('akbar123'),
                 'role' => 'developer',

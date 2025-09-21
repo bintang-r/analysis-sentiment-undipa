@@ -15,4 +15,11 @@ return [
     ],
 
     'app_name' => env('APP_NAME', 'Ryoogen Pungawa Media'),
+
+    'developer_user' => [
+        'muhbintang650@gmail.com',
+        'feryfadulrahman@gmail.com',
+        'akbar@gmail.com',
+        'ugha@gmail.com',
+    ],
 ];
