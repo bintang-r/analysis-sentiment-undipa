@@ -4,6 +4,21 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\File as FileFacade;
 
+/*
+|--------------------------------------------------------------------------
+| Helper Pungawa Ryoogen Media
+|--------------------------------------------------------------------------
+|
+| Developed and maintained by Ryoogen Pungawa Media.
+|
+| Ryoogen Media adalah perusahaan yang bergerak di bidang IT development,
+| mencakup pembuatan sistem berbasis Website, Mobile App, Desktop,
+| Internet of Things (IoT), dan automasi (n8n, dll).
+|
+| Hak cipta © 2025 Ryoogen Media. All rights reserved.
+|
+*/
+
 /**
  * Mengecek apakah user sedang online
  *

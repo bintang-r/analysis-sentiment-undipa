@@ -15,31 +15,38 @@ use Illuminate\Support\Facades\Route;
 
 Route::redirect('/', '/login');
 
-Route::middleware('auth', 'verified', 'force.logout')->namespace('App\Livewire')->group(function () {
-    /**
-     * beranda / home
-     */
-    Route::get('beranda', Home\Index::class)->name('home')
-        ->middleware('roles:superadmin,admin,user');
-
-    /**
-     * setting
-     */
-    Route::prefix('pengaturan')->name('setting.')->middleware('roles:superadmin,admin,user')->namespace('Setting')->group(function () {
-        Route::redirect('/', 'pengaturan/aplikasi');
+Route::middleware('auth', 'verified', 'force.logout')
+    ->namespace('App\Livewire')
+    ->group(function () {
 
         /**
-         * Profile
+         * beranda / home
          */
-        Route::prefix('profil')->name('profile.')->group(function () {
-            Route::get('/', Profile\Index::class)->name('index');
-        });
+        Route::get('beranda', Home\Index::class)
+            ->name('home')
+            ->middleware('roles:developer,superadmin,admin,user');
 
         /**
-         * Account
+         * pengaturan / setting
          */
-        Route::prefix('akun')->name('account.')->group(function () {
-            Route::get('/', Account\Index::class)->name('index');
-        });
+        Route::prefix('pengaturan')
+            ->name('setting.')
+            ->middleware('roles:developer,superadmin,admin,user')
+            ->group(function () {
+                Route::redirect('/', 'pengaturan/aplikasi');
+
+                /**
+                 * profil / profile
+                 */
+                Route::prefix('profil')->name('profile.')->group(function () {
+                    Route::get('/', Setting\Profile\Index::class)->name('index');
+                });
+
+                /**
+                 * akun / account
+                 */
+                Route::prefix('akun')->name('account.')->group(function () {
+                    Route::get('/', Setting\Account\Index::class)->name('index');
+                });
+            });
     });
-});
