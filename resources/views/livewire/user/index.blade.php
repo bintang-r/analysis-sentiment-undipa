@@ -71,9 +71,9 @@
                 <tbody>
                     @if ($selectPage)
                         <tr>
-                            <td colspan="10" class="bg-orange-lt rounded-0">
+                            <td colspan="10" class="bg-blue-lt rounded-0">
                                 @if (!$selectAll)
-                                    <div class="text-orange">
+                                    <div class="text-blue">
                                         <span>Anda telah memilih <strong>{{ $this->rows->total() }}</strong> pengguna,
                                             apakah
                                             Anda mau memilih semua <strong>{{ $this->rows->total() }}</strong>
