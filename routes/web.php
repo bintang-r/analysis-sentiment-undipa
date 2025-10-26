@@ -33,8 +33,15 @@ Route::middleware('auth', 'verified', 'force.logout')
             ->middleware('roles:developer,superadmin,admin')
             ->group(function () {
                 Route::get('/', Comment\Index::class)->name('index');
-                Route::get('/tambah', Comment\Create::class)->name('create');
-                Route::get('/sunting/{id}', Comment\Edit::class)->name('edit');
+            });
+
+        /**
+         * social media / media sosial
+         */
+        Route::prefix('sosial-media')->name('social-media.')
+            ->middleware('roles:developer,superadmin,admin')
+            ->group(function () {
+                Route::get('/', SocialMedia\Index::class)->name('index');
             });
 
         /**
