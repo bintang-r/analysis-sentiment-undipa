@@ -6,7 +6,7 @@
                     <li class="list-inline-item">
                         <a href="https://github.com/ryoogenmedia" target="_blank" class="link-secondary" rel="noopener">
                             @include('partials.svg.love')
-                            Develop Ryoogen Pungawa Media
+                            Develop By Reyhan Renaldy
                         </a>
                     </li>
                 </ul>
@@ -15,8 +15,8 @@
                 <ul class="list-inline list-inline-dots mb-0">
                     <li class="list-inline-item">
                         Copyright &copy; 2024
-                        <a href="https://ryoogen.vercel.app/" class="link-secondary">Panel Admin System Ryoogen
-                            Pungawa Media</a>.
+                        <a href="https://ryoogen.vercel.app/" class="link-secondary">Template By Ryoogen Pungawa
+                            Media</a>.
                         All rights reserved.
                     </li>
                     <li class="list-inline-item">
