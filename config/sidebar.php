@@ -20,6 +20,15 @@ return [
     ],
 
     [
+        'title' => 'Data Media Sosial',
+        'icon' => 'globe',
+        'route-name' => 'social-media.index',
+        'is-active' => 'social-media*',
+        'description' => 'Untuk melihat semua data sosial media.',
+        'roles' => ['developer', 'superadmin', 'admin'],
+    ],
+
+    [
         'title' => 'Pengguna',
         'icon' => 'user',
         'route-name' => 'user.index',

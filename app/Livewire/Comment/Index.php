@@ -16,7 +16,6 @@ use Livewire\Component;
 
 class Index extends Component
 {
-
     use WithBulkActions;
     use WithPerPagePagination;
     use WithCachedRows;
