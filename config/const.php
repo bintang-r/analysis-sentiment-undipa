@@ -33,5 +33,6 @@ return [
         'netral',
         'negatif',
         'positif',
+        'async',
     ],
 ];

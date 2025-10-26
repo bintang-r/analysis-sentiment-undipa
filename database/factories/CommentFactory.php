@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\SocialMedia;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -19,10 +20,13 @@ class CommentFactory extends Factory
     {
         $userIds = User::pluck('id')->toArray();
         $status = config('const.sentiment_status');
+        $socialMediaIds = SocialMedia::pluck('id')->toArray();
+
         return [
-            'user_id' => $this->faker->randomElement($userIds),
-            'comment' => $this->faker->sentence(10),
-            'status'  => $this->faker->randomElement($status),
+            'user_id'         => $this->faker->randomElement($userIds),
+            'social_media_id' => $this->faker->randomElement($socialMediaIds),
+            'comment'         => $this->faker->sentence(10),
+            'status'          => $this->faker->randomElement($status),
         ];
     }
 }

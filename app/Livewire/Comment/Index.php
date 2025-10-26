@@ -7,6 +7,7 @@ use App\Livewire\Traits\DataTable\WithCachedRows;
 use App\Livewire\Traits\DataTable\WithPerPagePagination;
 use App\Livewire\Traits\DataTable\WithSorting;
 use App\Models\Comment;
+use App\Models\SocialMedia;
 use Exception;
 use Illuminate\Support\Facades\DB;
 use Livewire\Attributes\Computed;
@@ -24,12 +25,15 @@ class Index extends Component
     public $filters = [
         'search' => '',
         'status' => '',
+        'social_media' => '',
     ];
 
     public $commentId;
     public $comment;
 
     public $komentarSentiment;
+    public $sosialMedia;
+    public $status = 'async';
 
     public function deleteSelected()
     {
@@ -56,7 +60,15 @@ class Index extends Component
         $this->comment = Comment::find($id);
         $this->commentId = $id;
 
-        $this->komentarSentiment = $this->comment;
+        $this->komentarSentiment = $this->comment->comment;
+        $this->status = $this->comment->status;
+        $this->sosialMedia = $this->comment->social_media_id;
+    }
+
+    #[Computed()]
+    public function social_medias()
+    {
+        return SocialMedia::all();
     }
 
     public function closeModal()
@@ -70,6 +82,8 @@ class Index extends Component
             'komentarSentiment',
             'commentId',
             'comment',
+            'status',
+            'sosialMedia',
         ]);
     }
 
@@ -84,13 +98,17 @@ class Index extends Component
 
             if ($this->comment) {
                 $this->comment->update([
-                    'comment' => $this->komentarSentiment,
-                    'user_id' => auth()->id(),
+                    'user_id'         => auth()->id(),
+                    'social_media_id' => $this->sosialMedia,
+                    'status'          => $this->status,
+                    'comment'         => $this->komentarSentiment,
                 ]);
             } else {
                 Comment::create([
-                    'comment' => $this->komentarSentiment,
-                    'user_id' => auth()->id(),
+                    'user_id'         => auth()->id(),
+                    'social_media_id' => $this->sosialMedia,
+                    'status'          => $this->status,
+                    'comment'         => $this->komentarSentiment,
                 ]);
             }
 
@@ -136,6 +154,9 @@ class Index extends Component
             })
             ->when($this->filters['status'], function ($query, $status) {
                 $query->where('status', $status);
+            })
+            ->when($this->filters['social_media'], function ($query, $sosmed) {
+                $query->where('social_media_id', $sosmed);
             })
             ->latest();
 

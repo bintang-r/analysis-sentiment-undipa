@@ -14,9 +14,15 @@ class Comment extends Model
 
     protected $fillable = [
         'user_id',
+        'social_media_id',
         'comment',
         'status',
     ];
+
+    public function social_media()
+    {
+        return $this->belongsTo(SocialMedia::class, 'social_media_id', 'id')->withDefault();
+    }
 
     public function user()
     {
