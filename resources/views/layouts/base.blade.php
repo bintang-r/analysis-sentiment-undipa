@@ -42,7 +42,7 @@
     <script src="{{ asset('dist/libs/jsvectormap/dist/maps/world-merc.js') }}"></script>
 
     <script>
-        console.log('DEVELOPED BY RYOOGEN PUNGAWA MEDIA 👋');
+        console.log('DEVELOPED BY REYHAN RENALDY 👋');
 
         var useServerTime = true;
         var serverTime = {{ time() * 1000 }};
