@@ -2,8 +2,8 @@
     <div class="card card-md">
         <div class="card-body">
             <div class="text-center mb-3s">
-                <h2 class="h4 text-center mb-5 title-login">Ryoogen Pungawa Media Admin Panel System</h2>
-                <p>Masukkan data anda untuk masuk & mengelola data.</p>
+                <h2 class="h4 text-center mb-5 title-login">Analysis Sentiment</h2>
+                <p>Masukkan data anda untuk masuk & mengelola data analisis sentimen.</p>
             </div>
 
             <form class="mt-5" action="{{ route('login') }}" method="POST" autocomplete="off">

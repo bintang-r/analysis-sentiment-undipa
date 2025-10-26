@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
@@ -15,33 +14,19 @@ class UserTableSeeder extends Seeder
     {
         $developer = [
             [
-                'username' => 'Bintang Dev',
+                'username' => 'Reyhan Renaldi',
+                'email' => 'reyhanrenaldy@gmail.com',
+                'email_verified_at' => now(),
+                'password' => bcrypt('reyhan123'),
+                'role' => 'developer',
+            ],
+            [
+                'username' => 'Muhammad Bintang',
                 'email' => 'muhbintang650@gmail.com',
                 'email_verified_at' => now(),
                 'password' => bcrypt('bintang123'),
                 'role' => 'developer',
             ],
-            [
-                'username' => 'Fery Dev',
-                'email' => 'feryfadulrahman@gmail.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('fery123'),
-                'role' => 'developer',
-            ],
-            [
-                'username' => 'Akbar Dev',
-                'email' => 'akbar@gmail.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('akbar123'),
-                'role' => 'developer',
-            ],
-            [
-                'username' => 'Ugha Dev',
-                'email' => 'ugha@gmail.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('ugha123'),
-                'role' => 'developer',
-            ]
         ];
 
         $testUser = [
