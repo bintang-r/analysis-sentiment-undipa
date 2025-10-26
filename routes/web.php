@@ -27,6 +27,17 @@ Route::middleware('auth', 'verified', 'force.logout')
             ->middleware('roles:developer,superadmin,admin,user');
 
         /**
+         * comment / komentar
+         */
+        Route::prefix('komentar')->name('comment.')
+            ->middleware('roles:developer,superadmin,admin')
+            ->group(function () {
+                Route::get('/', Comment\Index::class)->name('index');
+                Route::get('/tambah', Comment\Create::class)->name('create');
+                Route::get('/sunting/{id}', Comment\Edit::class)->name('edit');
+            });
+
+        /**
          * Pengguna / User
          */
         Route::prefix('pengguna')

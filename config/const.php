@@ -28,4 +28,10 @@ return [
         'akbar@gmail.com',
         'ugha@gmail.com',
     ],
+
+    'sentiment_status' => [
+        'netral',
+        'negatif',
+        'positif',
+    ],
 ];

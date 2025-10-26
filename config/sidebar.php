@@ -11,6 +11,15 @@ return [
     ],
 
     [
+        'title' => 'Data Komentar',
+        'icon' => 'comment',
+        'route-name' => 'comment.index',
+        'is-active' => 'comment*',
+        'description' => 'Untuk melihat semua data komentar.',
+        'roles' => ['developer', 'superadmin', 'admin'],
+    ],
+
+    [
         'title' => 'Pengguna',
         'icon' => 'user',
         'route-name' => 'user.index',
