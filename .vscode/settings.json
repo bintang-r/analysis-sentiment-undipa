@@ -1,13 +1,4 @@
 {
-    "workbench.colorCustomizations": {
-        "statusBar.background": "#0a47a2",
-        "statusBar.foreground": "#FFFFFF",
-        "activityBar.background": "#1D1F21",
-        "activityBar.foreground": "#FFFFFF"
-        // "titleBar.activeBackground": "#0a47a2",
-        // "titleBar.activeForeground": "#FFFFFF"
-    },
-
     "editor.tokenColorCustomizations": {
         "textMateRules": [
             {
