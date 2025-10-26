@@ -15,9 +15,9 @@ return [
     ],
 
     "logo" => [
-        "light" => env("LOGO_LIGHT", 'ryoogenmedia/logo/LOGO 1.svg'),
-        "transparent" => env("LOGO_TRANSPARENT", 'ryoogenmedia/logo/LOGO 2.svg'),
-        "dark" => env('LOGO_DARK', 'ryoogenmedia/logo/LOGO 3.svg'),
+        "light" => env("LOGO_LIGHT", 'sentinova/logo/LOGO.png'),
+        "transparent" => env("LOGO_TRANSPARENT", 'sentinova/logo/LOGO.png'),
+        "dark" => env('LOGO_DARK', 'sentinova/logo/LOGO.png'),
     ],
 
     'app_name' => env('APP_NAME', 'Ryoogen Pungawa Media'),
