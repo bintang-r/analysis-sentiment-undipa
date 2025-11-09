@@ -16,6 +16,9 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    protected $table = "users_232187";
+
     protected $fillable = [
         'force_logout',
         'username',

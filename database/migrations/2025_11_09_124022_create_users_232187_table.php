@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('users_232187', function (Blueprint $table) {
             $table->id();
             $table->string('username');
             $table->string('avatar')->nullable();
@@ -22,6 +22,10 @@ return new class extends Migration
             $table->timestamp('last_login_time')->nullable();
             $table->string('last_login_ip')->nullable();
             $table->timestamp('last_seen_time')->nullable();
+
+            $table->boolean('force_logout')->default(false);
+
+
             $table->rememberToken();
             $table->timestamps();
         });
@@ -32,6 +36,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('users_232187');
     }
 };

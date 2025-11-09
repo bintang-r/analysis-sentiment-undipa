@@ -11,8 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->boolean('force_logout')->default(false);
+        Schema::create('social_media_232187', function (Blueprint $table) {
+            $table->id();
+            $table->string('name')->nullable();
+            $table->boolean('is_active')->default(true)->nullable();
+            $table->timestamps();
         });
     }
 
@@ -21,8 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('users', function (Blueprint $table) {
-            $table->dropColumn('force_logout');
-        });
+        Schema::dropIfExists('social_media_232187');
     }
 };

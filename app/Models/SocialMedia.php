@@ -9,7 +9,7 @@ class SocialMedia extends Model
 {
     use HasFactory;
 
-    protected $table = 'social_media';
+    protected $table = 'social_media_232187';
 
     protected $fillable = [
         'name',
