@@ -13,20 +13,20 @@ class Comment extends Model
     protected $table = 'comments_232187';
 
     protected $fillable = [
-        'user_id',
-        'social_media_id',
-        'comment',
-        'status',
+        'user_id_232187',
+        'social_media_id_232187',
+        'comment_232187',
+        'status_232187',
     ];
 
     public function social_media()
     {
-        return $this->belongsTo(SocialMedia::class, 'social_media_id', 'id')->withDefault();
+        return $this->belongsTo(SocialMedia::class, 'social_media_id_232187', 'id_232187')->withDefault();
     }
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'user_id', 'id')->withDefault();
+        return $this->belongsTo(User::class, 'user_id_232187', 'id_232187')->withDefault();
     }
 
     public function getAttributeCreatedAt($value)
