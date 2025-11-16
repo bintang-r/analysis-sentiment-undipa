@@ -12,30 +12,14 @@ class UserTableSeeder extends Seeder
      */
     public function run(): void
     {
-        $developer = [
+
+        $testUser = [
             [
                 'username_232187' => 'Reyhan Renaldy',
                 'email_232187' => 'hansekuy15@gmail.com',
                 'email_verified_at_232187' => now(),
                 'password_232187' => bcrypt('reyhan123'),
-                'role_232187' => 'developer',
-            ],
-        ];
-
-        $testUser = [
-            [
-                'username_232187' => 'Test Admin',
-                'email_232187' => 'testadmin@gmail.com',
-                'email_verified_at_232187' => now(),
-                'password_232187' => bcrypt('test123'),
                 'role_232187' => 'admin',
-            ],
-            [
-                'username_232187' => 'Test Superadmin',
-                'email_232187' => 'testsuperadmin@gmail.com',
-                'email_verified_at_232187' => now(),
-                'password_232187' => bcrypt('test123'),
-                'role_232187' => 'superadmin',
             ],
             [
                 'username_232187' => 'Test User',
@@ -45,10 +29,6 @@ class UserTableSeeder extends Seeder
                 'role_232187' => 'user',
             ],
         ];
-
-        foreach ($developer as $user) {
-            User::create($user);
-        }
 
         foreach ($testUser as $user) {
             User::create($user);
