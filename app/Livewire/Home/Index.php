@@ -36,6 +36,23 @@ class Index extends Component
         $this->totalNetralChart = HomeChart::CHART_DATA(Comment::query()->where('status_232187', 'netral'), $this->period);
         $this->totalNegatifChart = HomeChart::CHART_DATA(Comment::query()->where('status_232187', 'negatif'), $this->period);
         $this->totalPositifChart = HomeChart::CHART_DATA(Comment::query()->where('status_232187', 'positif'), $this->period);
+
+        // Hitung total untuk persen
+        $totalPositif = array_sum($this->totalPositifChart['data']);
+        $totalNegatif = array_sum($this->totalNegatifChart['data']);
+        $totalNetral  = array_sum($this->totalNetralChart['data']);
+
+        $totalSemua = $totalPositif + $totalNegatif + $totalNetral;
+
+        if ($totalSemua > 0) {
+            $this->positifPercent = round(($totalPositif / $totalSemua) * 100, 1);
+            $this->negatifPercent = round(($totalNegatif / $totalSemua) * 100, 1);
+            $this->netralPercent  = round(($totalNetral / $totalSemua) * 100, 1);
+        } else {
+            $this->positifPercent = 0;
+            $this->negatifPercent = 0;
+            $this->netralPercent = 0;
+        }
     }
 
     public function getLoginHistories()
@@ -68,6 +85,11 @@ class Index extends Component
             'total_positif' => $totalPositif,
             'total_netral' => $totalNetral,
             'date' => $date,
+            'percent' => [
+                'positif' => $this->positifPercent,
+                'negatif' => $this->negatifPercent,
+                'netral'  => $this->netralPercent,
+            ]
         ]);
     }
 
