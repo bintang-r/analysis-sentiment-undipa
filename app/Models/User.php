@@ -19,6 +19,12 @@ class User extends Authenticatable
 
     protected $table = "users_232187";
 
+    protected $primaryKey = 'id_232187'; // <-- wajib
+
+    public $incrementing = true;
+
+    protected $keyType = 'int';
+
     protected $fillable = [
         'force_logout_232187',
         'username_232187',
@@ -57,9 +63,9 @@ class User extends Authenticatable
     // GET AVATAR URL
     public function avatarUrl()
     {
-        return $this->avatar
-            ? url('storage/' . $this->avatar)
-            : 'https://gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=1024';
+        return $this->avatar_232187
+            ? url('storage/' . $this->avatar_232187)
+            : 'https://gravatar.com/avatar/' . md5(strtolower(trim($this->email_232187))) . '?s=1024';
     }
 
     public function comments()

@@ -23,7 +23,7 @@
                             <x-form.select wire:model="sosialMedia" name="sosialMedia" label="Sosial Media">
                                 <option value="">- pilih sosial media -</option>
                                 @foreach ($this->social_medias as $social_media)
-                                    <option value="{{ $social_media->id }}">{{ ucwords($social_media->name) }}</option>
+                                    <option value="{{ $social_media->id_232187 }}">{{ ucwords($social_media->name_232187) }}</option>
                                 @endforeach
                             </x-form.select>
 
@@ -64,7 +64,7 @@
                             form-group-class>
                             <option value="">- SOSMED -</option>
                             @foreach ($this->social_medias as $social_media)
-                                <option value="{{ $social_media->id }}">{{ strtoupper($social_media->name) }}</option>
+                                <option value="{{ $social_media->id_232187 }}">{{ strtoupper($social_media->name_232187) }}</option>
                             @endforeach
                         </x-form.select>
                     </div>
@@ -99,18 +99,18 @@
                                 </th>
 
                                 <th>
-                                    <x-datatable.column-sort name="Komentar" wire:click="sortBy('comment')"
-                                        :direction="$sorts['comment'] ?? null" />
+                                    <x-datatable.column-sort name="Komentar" wire:click="sortBy('comment_232187')"
+                                        :direction="$sorts['comment_232187'] ?? null" />
                                 </th>
 
                                 <th>
-                                    <x-datatable.column-sort name="Sosial Media" wire:click="sortBy('social_media_id')"
-                                        :direction="$sorts['social_media_id'] ?? null" />
+                                    <x-datatable.column-sort name="Sosial Media" wire:click="sortBy('social_media_id_232187')"
+                                        :direction="$sorts['social_media_id_232187'] ?? null" />
                                 </th>
 
                                 <th>
-                                    <x-datatable.column-sort name="Status" wire:click="sortBy('status')"
-                                        :direction="$sorts['status'] ?? null" />
+                                    <x-datatable.column-sort name="Status" wire:click="sortBy('status_232187')"
+                                        :direction="$sorts['status_232187'] ?? null" />
                                 </th>
 
                                 <th>
@@ -148,34 +148,34 @@
                             @endif
 
                             @forelse ($this->rows as $row)
-                                <tr wire:key="row-{{ $row->id }}"
-                                    class="{{ $row->id == $this->commentId ? 'bg-orange-lt rounded-0' : '' }}">
+                                <tr wire:key="row-{{ $row->id_232187 }}"
+                                    class="{{ $row->id_232187 == $this->commentId ? 'bg-orange-lt rounded-0' : '' }}">
                                     <td class="rounded-0">
                                         <x-datatable.bulk.check wire:model.lazy="selected"
-                                            value="{{ $row->id }}" />
+                                            value="{{ $row->id_232187 }}" />
                                     </td>
 
-                                    <td class="rounded-0">{{ $row->comment ?? '-' }}</td>
+                                    <td class="rounded-0">{{ $row->comment_232187 ?? '-' }}</td>
 
-                                    <td class="rounded-0">{{ $row->social_media->name ?? '-' }}</td>
+                                    <td class="rounded-0">{{ $row->social_media->name_232187 ?? '-' }}</td>
 
                                     <td class="rounded-0">
                                         <span @class([
                                             'badge',
-                                            'bg-red' => $row->status == 'negatif',
-                                            'bg-primary' => $row->status == 'netral',
-                                            'bg-green' => $row->status == 'positif',
-                                        ])>{{ $row->status }}</span>
+                                            'bg-red' => $row->status_232187 == 'negatif',
+                                            'bg-primary' => $row->status_232187 == 'netral',
+                                            'bg-green' => $row->status_232187 == 'positif',
+                                        ])>{{ $row->status_232187 }}</span>
                                     </td>
 
-                                    <td class="rounded-0">{{ $row->created_at ?? '-' }}</td>
+                                    <td class="rounded-0">{{ $row->created_at_232187 ?? '-' }}</td>
 
                                     <td class="rounded-0">
-                                        @if ($this->commentId == $row->id)
+                                        @if ($this->commentId == $row->id_232187)
                                             <button wire:click="closeModal" class="btn btn-danger" type="button">Batal
                                                 <span class="las la-times fs-2 ms-1"></span></button>
                                         @else
-                                            <button wire:click="openModal({{ $row->id }})" class="btn btn-dark"
+                                            <button wire:click="openModal({{ $row->id_232187 }})" class="btn btn-dark"
                                                 type="button">Edit <span
                                                     class="las la-edit fs-2 ms-1"></span></button>
                                         @endif

@@ -26,9 +26,9 @@
                                         <div>
                                             <h4 class="alert-title">Ada yang salah.</h4>
                                             <div class="text-muted">
-                                                @foreach ($errors->all() as $error)
-                                                    <p> - {{ $error }}</p>
-                                                @endforeach
+                                                {{-- @foreach ($errors->all() as $error) --}}
+                                                    <p> - {{ $errors }}</p>
+                                                {{-- @endforeach --}}
                                             </div>
                                         </div>
                                     </div>

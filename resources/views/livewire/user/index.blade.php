@@ -93,9 +93,9 @@
                     @endif
 
                     @forelse ($this->rows as $row)
-                        <tr wire:key="row-{{ $row->id }}">
+                        <tr wire:key="row-{{ $row->id_232187 }}">
                             <td>
-                                <x-datatable.bulk.check wire:model.lazy="selected" value="{{ $row->id }}" />
+                                <x-datatable.bulk.check wire:model.lazy="selected" value="{{ $row->id_232187 }}" />
                             </td>
 
                             <td>
@@ -120,10 +120,10 @@
                                     'bg-lime' => $row->role_232187 == 'admin',
                                     'bg-green' => $row->role_232187 == 'superadmin',
                                     'bg-blue' => $row->role_232187 == 'developer',
-                                ])>{{ $row->role }}</span>
+                                ])>{{ $row->role_232187 }}</span>
                             </td>
 
-                            <td>{{ $row->email ?? '-' }}</td>
+                            <td>{{ $row->email_232187 ?? '-' }}</td>
 
                             <td style="width: 90px" class="px-4">
                                 @if (auth()->user()->role == 'developer')
@@ -143,7 +143,7 @@
                             <td>
                                 <div class="d-flex">
                                     <div class="ms-auto">
-                                        <a class="btn btn-sm" href="{{ route('user.edit', $row->id) }}">
+                                        <a class="btn btn-sm" href="{{ route('user.edit', $row->id_232187) }}">
                                             Sunting
                                         </a>
                                     </div>

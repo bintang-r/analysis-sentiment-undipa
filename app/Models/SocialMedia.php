@@ -11,6 +11,13 @@ class SocialMedia extends Model
 
     protected $table = 'social_media_232187';
 
+    protected $primaryKey = 'id_232187'; // <-- wajib
+
+    public $incrementing = true;
+
+    protected $keyType = 'int';
+
+
     protected $fillable = [
         'name_232187',
         'is_active_232187',

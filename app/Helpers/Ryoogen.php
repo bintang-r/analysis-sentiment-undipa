@@ -127,7 +127,7 @@ if (!function_exists('secret_user')) {
         $data = $query;
 
         if ($isAuthorization != 'developer') {
-            $data = $query->whereNotIn('email', config('const.developer_user'));
+            $data = $query->whereNotIn('email_232187', config('const.developer_user'));
         }
 
         return $data;

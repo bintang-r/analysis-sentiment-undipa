@@ -18,24 +18,24 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     public function update(User $user, array $input): void
     {
         Validator::make($input, [
-            'name_232187' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'max:255'],
 
-            'email_232187' => [
+            'email' => [
                 'required',
                 'string',
-                'email_232187',
+                'email',
                 'max:255',
                 Rule::unique('users')->ignore($user->id),
             ],
         ])->validateWithBag('updateProfileInformation');
 
-        if ($input['email_232187'] !== $user->email &&
+        if ($input['email'] !== $user->email_232187 &&
             $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'name_232187' => $input['name_232187'],
-                'email_232187' => $input['email_232187'],
+                'name_232187' => $input['name'],
+                'email_232187' => $input['email'],
             ])->save();
         }
     }

@@ -12,13 +12,13 @@
                     <span class="avatar avatar-xl mb-3 avatar-rounded"
                         style="background-image: url({{ auth()->user()->avatarUrl() ?? '-' }})"></span>
 
-                    <h3 class="m-0 mb-1">{{ auth()->user()->username ?? '-' }}</h3>
+                    <h3 class="m-0 mb-1">{{ auth()->user()->username_232187 ?? '-' }}</h3>
 
-                    <div class="text-muted">{{ auth()->user()->email ?? '-' }}</div>
+                    <div class="text-muted">{{ auth()->user()->email_232187 ?? '-' }}</div>
 
                     <div class="mt-3">
                         <span
-                            class="badge bg-green-lt">{{ ucwords(str_replace('-', ' ', auth()->user()->role)) ?? '-' }}</span>
+                            class="badge bg-green-lt">{{ ucwords(str_replace('-', ' ', auth()->user()->role_232187)) ?? '-' }}</span>
                     </div>
                 </div>
 

@@ -12,6 +12,13 @@ class Comment extends Model
 
     protected $table = 'comments_232187';
 
+    protected $primaryKey = 'id_232187'; // <-- wajib
+
+    public $incrementing = true;
+
+    protected $keyType = 'int';
+
+
     protected $fillable = [
         'user_id_232187',
         'social_media_id_232187',

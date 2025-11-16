@@ -33,7 +33,7 @@
                     <x-form.input wire:model="email" name="email" label="Masukkan Email" placeholder="masukkan email"
                         type="text" required />
 
-                    @if (auth()->user()->role == 'developer')
+                    @if (auth()->user()->role_232187 == 'developer')
                         <x-form.select wire:model.lazy="role" name="role" label="Level" required>
                             <option value="">- pilih level -</option>
                             @foreach (config('const.visible_roles') as $dataRole)
