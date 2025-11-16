@@ -33,4 +33,11 @@ return [
         'positif',
         'async',
     ],
+
+    'periods' => [
+        'daily',
+        'weekly',
+        'monthly',
+        'yearly',
+    ],
 ];

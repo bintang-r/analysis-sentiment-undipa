@@ -2,11 +2,42 @@
 
 namespace App\Livewire\Home;
 
+use App\Helpers\HomeChart;
+use App\Models\Comment;
+use App\Models\SocialMedia;
 use App\Models\User;
 use Livewire\Component;
 
 class Index extends Component
 {
+    public $totalSocialMedia = 0;
+    public $totalComment = 0;
+    public $totalUser = 0;
+
+    public $totalNetralChart;
+    public $totalPositifChart;
+    public $totalNegatifChart;
+
+    public $netralPercent;
+    public $positifPercent;
+    public $negatifPercent;
+
+    public $period = 'daily';
+
+    public function getDataCount()
+    {
+        $this->totalSocialMedia = SocialMedia::count();
+        $this->totalComment = Comment::count();
+        $this->totalUser = User::count();
+    }
+
+    public function getDataChart()
+    {
+        $this->totalNetralChart = HomeChart::CHART_DATA(Comment::query()->where('status_232187', 'netral'), $this->period);
+        $this->totalNegatifChart = HomeChart::CHART_DATA(Comment::query()->where('status_232187', 'negatif'), $this->period);
+        $this->totalPositifChart = HomeChart::CHART_DATA(Comment::query()->where('status_232187', 'positif'), $this->period);
+    }
+
     public function getLoginHistories()
     {
         $user = User::query();
@@ -15,6 +46,29 @@ class Index extends Component
             ->orderBy('last_login_time_232187', 'DESC');
 
         return $query->limit(20)->get();
+    }
+
+    public function mount()
+    {
+        $this->getDataCount();
+        $this->getDataChart();
+    }
+
+    public function updatedPeriod()
+    {
+        $this->getDataChart();
+
+        $date = $this->totalNetralChart['date'];
+        $totalNegatif = $this->totalNegatifChart['data'];
+        $totalPositif = $this->totalPositifChart['data'];
+        $totalNetral = $this->totalNetralChart['data'];
+
+        $this->dispatch('updateChart', [
+            'total_negatif' => $totalNegatif,
+            'total_positif' => $totalPositif,
+            'total_netral' => $totalNetral,
+            'date' => $date,
+        ]);
     }
 
     public function render()
