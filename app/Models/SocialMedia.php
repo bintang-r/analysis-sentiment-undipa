@@ -17,6 +17,9 @@ class SocialMedia extends Model
 
     protected $keyType = 'int';
 
+    const CREATED_AT = 'created_at_232187';
+    const UPDATED_AT = 'updated_at_232187';
+
 
     protected $fillable = [
         'name_232187',

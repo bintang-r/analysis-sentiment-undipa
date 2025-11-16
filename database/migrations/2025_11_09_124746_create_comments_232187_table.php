@@ -17,7 +17,9 @@ return new class extends Migration
             $table->foreignId('social_media_id_232187')->nullable();
             $table->text('comment_232187')->nullable();
             $table->string('status_232187')->nullable();
-            $table->timestamps();
+            $table->timestamp('created_at_232187')->nullable();
+$table->timestamp('updated_at_232187')->nullable();
+
         });
     }
 

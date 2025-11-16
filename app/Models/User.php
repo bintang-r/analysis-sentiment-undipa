@@ -25,6 +25,10 @@ class User extends Authenticatable
 
     protected $keyType = 'int';
 
+    const CREATED_AT = 'created_at_232187';
+    const UPDATED_AT = 'updated_at_232187';
+
+
     protected $fillable = [
         'force_logout_232187',
         'username_232187',

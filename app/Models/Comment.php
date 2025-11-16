@@ -19,6 +19,10 @@ class Comment extends Model
     protected $keyType = 'int';
 
 
+    const CREATED_AT = 'created_at_232187';
+    const UPDATED_AT = 'updated_at_232187';
+
+
     protected $fillable = [
         'user_id_232187',
         'social_media_id_232187',
