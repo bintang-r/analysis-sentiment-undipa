@@ -14,20 +14,20 @@ class SocialMediaTableSeeder extends Seeder
     {
         $social_medias = [
             [
-                'name' => 'tiktok',
-                'is_active' => true,
+                'name_232187' => 'tiktok',
+                'is_active_232187' => true,
             ],
             [
-                'name' => 'x (twitter)',
-                'is_active' => true,
+                'name_232187' => 'x (twitter)',
+                'is_active_232187' => true,
             ],
             [
-                'name' => 'instagram',
-                'is_active' => true,
+                'name_232187' => 'instagram',
+                'is_active_232187' => true,
             ],
             [
-                'name' => 'facebook',
-                'is_active' => false,
+                'name_232187' => 'facebook',
+                'is_active_232187' => false,
             ]
         ];
 

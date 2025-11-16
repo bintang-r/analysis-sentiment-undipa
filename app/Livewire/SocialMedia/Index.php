@@ -70,8 +70,8 @@ class Index extends Component
         $this->socialMedia = SocialMedia::find($id);
         $this->socialMediaId = $id;
 
-        $this->namaSosialMedia = $this->socialMedia->name;
-        $this->isActive = $this->socialMedia->is_active == 1 ? true : false;
+        $this->namaSosialMedia = $this->socialMedia->name_232187;
+        $this->isActive = $this->socialMedia->is_active_232187 == 1 ? true : false;
     }
 
     public function closeModal()
@@ -101,13 +101,13 @@ class Index extends Component
 
             if ($this->socialMedia) {
                 $this->socialMedia->update([
-                    'name'      => $this->namaSosialMedia,
-                    'is_active' => $this->isActive,
+                    'name_232187'      => $this->namaSosialMedia,
+                    'is_active_232187' => $this->isActive,
                 ]);
             } else {
                 SocialMedia::create([
-                    'name'      => $this->namaSosialMedia,
-                    'is_active' => $this->isActive,
+                    'name_232187'      => $this->namaSosialMedia,
+                    'is_active_232187' => $this->isActive,
                 ]);
             }
 
@@ -117,7 +117,7 @@ class Index extends Component
 
             logger()->error(
                 '[sosial media] ' .
-                    auth()->user()->username .
+                    auth()->user()->username_232187 .
                     ' gagal menambahkan sosial media',
                 [$e->getMessage()]
             );
@@ -148,7 +148,7 @@ class Index extends Component
         $query = SocialMedia::query()
             ->when(!$this->sorts, fn($query) => $query->first())
             ->when($this->filters['search'], function ($query, $search) {
-                $query->where('name', 'LIKE', "%$search%");
+                $query->where('name_232187', 'LIKE', "%$search%");
             })
             ->latest();
 

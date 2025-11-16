@@ -29,7 +29,7 @@
                     <li
                         class="nav-item {{ isset($item['sub-menus']) ? 'dropdown' : '' }} {{ Route::is($item['route-name']) || Route::is($item['is-active']) ? 'active border border-top-0 border-start-0 border-bottom-0 border-end-1 rounded-0' : '' }}">
                         @if (!isset($item['sub-menus']))
-                            @if (in_array(auth()->user()->role, $item['roles']))
+                            @if (in_array(auth()->user()->role_232187, $item['roles']))
                                 <a class="nav-link" href="{{ route($item['route-name']) }}"
                                     title="{{ $item['description'] }}">
                                     <span class="nav-link-icon d-md-none d-lg-inline-block">
@@ -46,7 +46,7 @@
                                 </a>
                             @endif
                         @else
-                            @if (in_array(auth()->user()->role, $item['roles']))
+                            @if (in_array(auth()->user()->role_232187, $item['roles']))
                                 <a class="nav-link dropdown-toggle {{ Route::is($item['route-name']) || Route::is($item['is-active']) ? 'border border-top-0 border-start-0 border-bottom-0 border-end-1 rounded-0' : '' }}"
                                     href="#sidebar-{{ Str::random(10) }}-{{ Str::slug($item['title']) }}"
                                     data-bs-toggle="dropdown" role="button" aria-expanded="false"

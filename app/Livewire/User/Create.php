@@ -41,16 +41,16 @@ class Create extends Component
             DB::beginTransaction();
 
             $user = User::create([
-                'username'          => $this->username,
-                'email'             => strtolower($this->email),
-                'password'          => bcrypt($this->kataSandi),
-                'role'              => $this->role,
-                'email_verified_at' => now(),
+                'username_232187'          => $this->username,
+                'email_232187'             => strtolower($this->email),
+                'password_232187'          => bcrypt($this->kataSandi),
+                'role_232187'              => $this->role,
+                'email_verified_at_232187' => now(),
             ]);
 
-            if ($this->avatar) {
+            if ($this->avatar_232187) {
                 $user->update([
-                    'avatar' => $this->avatar->store('avatars', 'public'),
+                    'avatar_232187' => $this->avatar_232187->store('avatars', 'public'),
                 ]);
             }
 
@@ -60,7 +60,7 @@ class Create extends Component
 
             logger()->error(
                 '[pengguna] ' .
-                    auth()->user()->username .
+                    auth()->user()->username_232187 .
                     ' gagal menambahkan pengguna',
                 [$e->getMessage()]
             );

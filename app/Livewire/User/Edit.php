@@ -46,34 +46,34 @@ class Edit extends Component
             DB::beginTransaction();
 
             $user->update([
-                'username'          => $this->username,
-                'role'              => $this->role,
-                'email_verified_at' => now(),
+                'username_232187'          => $this->username,
+                'role_232187'              => $this->role,
+                'email_verified_at_232187' => now(),
             ]);
 
             if ($this->email) {
                 $user->update([
-                    'email' => strtolower($this->email),
+                    'email_232187' => strtolower($this->email),
                 ]);
             }
 
             if ($this->kataSandi) {
-                $user->update(['password' => bcrypt($this->kataSandi)]);
+                $user->update(['password_232187' => bcrypt($this->kataSandi)]);
             }
 
             if ($this->avatar) {
-                if ($user->avatar) {
-                    File::delete(public_path('storage/' . $user->avatar));
+                if ($user->avatar_232187) {
+                    File::delete(public_path('storage/' . $user->avatar_232187));
                 }
 
-                $user->update(['avatar' => $this->avatar->store('avatars', 'public')]);
+                $user->update(['avatar_232187' => $this->avatar->store('avatars', 'public')]);
             }
 
             DB::commit();
         } catch (Exception $e) {
             logger()->error(
                 '[pengguna] ' .
-                    auth()->user()->username .
+                    auth()->user()->username_232187 .
                     ' gagal menyunting pengguna',
                 [$e->getMessage()]
             );
@@ -100,10 +100,10 @@ class Edit extends Component
     {
         $user = User::findOrFail($id);
 
-        $this->userId       = $user->id;
-        $this->username     = $user->username;
-        $this->email        = $user->email;
-        $this->role         = $user->role;
+        $this->userId       = $user->id_232187;
+        $this->username     = $user->username_232187;
+        $this->email        = $user->email_232187;
+        $this->role         = $user->role_232187;
         $this->avatarUrl    = $user->avatarUrl();
     }
 

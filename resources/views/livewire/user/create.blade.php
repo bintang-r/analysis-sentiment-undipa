@@ -33,7 +33,7 @@
                     <x-form.input wire:model="email" name="email" label="Masukkan Email" placeholder="masukkan email"
                         type="text" required />
 
-                    @if (auth()->user()->role == 'developer')
+                    @if (auth()->user()->role_232187 == 'developer')
                         <x-form.select wire:model.lazy="role" name="role" label="Level" required>
                             <option value="">- pilih level -</option>
                             @foreach (config('const.visible_roles') as $dataRole)
@@ -51,7 +51,7 @@
                     @if ($this->avatar)
                         <div class="col-lg-2 col-12 mb-lg-0 mb-2 mt-2 text-center">
                             <span class="avatar avatar-md"
-                                style="background-image: url({{ $this->avatar->temporaryUrl() }})"></span>
+                                style="background-image: url({{ $this->avatar_232187->temporaryUrl() }})"></span>
                         </div>
                     @else
                         <div class="col-lg-2 col-12 mb-lg-0 mb-2 mt-2 text-center">

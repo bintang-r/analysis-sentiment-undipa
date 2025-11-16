@@ -11,13 +11,23 @@ class SocialMedia extends Model
 
     protected $table = 'social_media_232187';
 
+    protected $primaryKey = 'id_232187'; // <-- wajib
+
+    public $incrementing = true;
+
+    protected $keyType = 'int';
+
+    const CREATED_AT = 'created_at_232187';
+    const UPDATED_AT = 'updated_at_232187';
+
+
     protected $fillable = [
-        'name',
-        'is_active',
+        'name_232187',
+        'is_active_232187',
     ];
 
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'social_media_id', 'id');
+        return $this->hasMany(Comment::class, 'social_media_id_232187', 'id_232187');
     }
 }

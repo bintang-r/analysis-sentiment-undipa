@@ -12,10 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('social_media_232187', function (Blueprint $table) {
-            $table->id();
-            $table->string('name')->nullable();
-            $table->boolean('is_active')->default(true)->nullable();
-            $table->timestamps();
+            $table->id('id_232187');
+            $table->string('name_232187')->nullable();
+            $table->boolean('is_active_232187')->default(true)->nullable();
+            $table->timestamp('created_at_232187')->nullable();
+$table->timestamp('updated_at_232187')->nullable();
+
         });
     }
 

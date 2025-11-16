@@ -19,19 +19,29 @@ class User extends Authenticatable
 
     protected $table = "users_232187";
 
+    protected $primaryKey = 'id_232187'; // <-- wajib
+
+    public $incrementing = true;
+
+    protected $keyType = 'int';
+
+    const CREATED_AT = 'created_at_232187';
+    const UPDATED_AT = 'updated_at_232187';
+
+
     protected $fillable = [
-        'force_logout',
-        'username',
-        'name',
-        'status',
-        'avatar',
-        'role',
-        'email',
-        'password',
-        'email_verified_at',
-        'last_login_time',
-        'last_login_ip',
-        'last_seen_time',
+        'force_logout_232187',
+        'username_232187',
+        'name_232187',
+        'status_232187',
+        'avatar_232187',
+        'role_232187',
+        'email_232187',
+        'password_232187',
+        'email_verified_at_232187',
+        'last_login_time_232187',
+        'last_login_ip_232187',
+        'last_seen_time_232187',
     ];
 
     /**
@@ -40,8 +50,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password_232187',
+        'remember_token_232187',
     ];
 
     /**
@@ -50,20 +60,20 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        'email_verified_at_232187' => 'datetime',
+        'password_232187' => 'hashed',
     ];
 
     // GET AVATAR URL
     public function avatarUrl()
     {
-        return $this->avatar
-            ? url('storage/' . $this->avatar)
-            : 'https://gravatar.com/avatar/' . md5(strtolower(trim($this->email))) . '?s=1024';
+        return $this->avatar_232187
+            ? url('storage/' . $this->avatar_232187)
+            : 'https://gravatar.com/avatar/' . md5(strtolower(trim($this->email_232187))) . '?s=1024';
     }
 
     public function comments()
     {
-        return $this->hasMany(Comment::class, 'user_id', 'id');
+        return $this->hasMany(Comment::class, 'user_id_232187', 'id_232187');
     }
 }

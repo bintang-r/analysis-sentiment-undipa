@@ -29,8 +29,8 @@ class Index extends Component
         $deleteCount = $users->count();
 
         foreach ($users as $data) {
-            if ($data->avatar) {
-                File::delete(public_path('storage/' . $data->avatar));
+            if ($data->avatar_232187) {
+                File::delete(public_path('storage/' . $data->avatar_232187));
             }
             $data->delete();
         }
@@ -49,7 +49,7 @@ class Index extends Component
     public function changeStatus($id)
     {
         $user = User::find($id);
-        $user->email_verified_at = $user->email_verified_at ? null : now();
+        $user->email_verified_at_232187 = $user->email_verified_at_232187 ? null : now();
         $user->save();
 
         session()->flash('alert', [
@@ -66,8 +66,8 @@ class Index extends Component
         $query = User::query()
             ->when(!$this->sorts, fn($query) => $query->first())
             ->when($this->filters['search'], function ($query, $search) {
-                $query->where('username', 'LIKE', "%$search%")
-                    ->orWhere('email', 'LIKE', "%$search%");
+                $query->where('username_232187', 'LIKE', "%$search%")
+                    ->orWhere('email_232187', 'LIKE', "%$search%");
             })->latest();
 
         $query = secret_user($query);

@@ -12,12 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('comments_232187', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('user_id')->nullable();
-            $table->foreignId('social_media_id')->nullable();
-            $table->text('comment')->nullable();
-            $table->string('status')->nullable();
-            $table->timestamps();
+            $table->id('id_232187');
+            $table->foreignId('user_id_232187')->nullable();
+            $table->foreignId('social_media_id_232187')->nullable();
+            $table->text('comment_232187')->nullable();
+            $table->string('status_232187')->nullable();
+            $table->timestamp('created_at_232187')->nullable();
+$table->timestamp('updated_at_232187')->nullable();
+
         });
     }
 

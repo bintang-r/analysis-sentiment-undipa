@@ -73,13 +73,13 @@
                                 </th>
 
                                 <th>
-                                    <x-datatable.column-sort name="Nama Sosial Media" wire:click="sortBy('name')"
-                                        :direction="$sorts['name'] ?? null" />
+                                    <x-datatable.column-sort name="Nama Sosial Media" wire:click="sortBy('name_232187')"
+                                        :direction="$sorts['name_232187'] ?? null" />
                                 </th>
 
                                 <th>
-                                    <x-datatable.column-sort name="Status Aktif" wire:click="sortBy('is_active')"
-                                        :direction="$sorts['is_active'] ?? null" />
+                                    <x-datatable.column-sort name="Status Aktif" wire:click="sortBy('is_active_232187')"
+                                        :direction="$sorts['is_active_232187'] ?? null" />
                                 </th>
 
                                 <th style="width: 10px"></th>
@@ -112,29 +112,29 @@
                             @endif
 
                             @forelse ($this->rows as $row)
-                                <tr wire:key="row-{{ $row->id }}"
-                                    class="{{ $row->id == $this->socialMediaId ? 'bg-orange-lt rounded-0' : '' }}">
+                                <tr wire:key="row-{{ $row->id_232187 }}"
+                                    class="{{ $row->id_232187 == $this->socialMediaId ? 'bg-orange-lt rounded-0' : '' }}">
                                     <td class="rounded-0">
                                         <x-datatable.bulk.check wire:model.lazy="selected"
-                                            value="{{ $row->id }}" />
+                                            value="{{ $row->id_232187 }}" />
                                     </td>
 
-                                    <td class="rounded-0">{{ $row->name ?? '-' }}</td>
+                                    <td class="rounded-0">{{ $row->name_232187 ?? '-' }}</td>
 
                                     <td>
-                                        <button wire:click="changeStatus({{ $row->id }})"
-                                            class="btn btn-{{ $row->is_active ? 'green' : 'dark' }}" type="button">
-                                            {{ $row->is_active ? 'Sync' : 'Async' }} <i
+                                        <button wire:click="changeStatus({{ $row->id_232187 }})"
+                                            class="btn btn-{{ $row->is_active_232187 ? 'green' : 'dark' }}" type="button">
+                                            {{ $row->is_active_232187 ? 'Sync' : 'Async' }} <i
                                                 class="las la-redo-alt ms-1 fw-bold fs-2"></i>
                                         </button>
                                     </td>
 
                                     <td class="rounded-0">
-                                        @if ($this->socialMediaId == $row->id)
+                                        @if ($this->socialMediaId == $row->id_232187)
                                             <button wire:click="closeModal" class="btn btn-danger" type="button">Batal
                                                 <span class="las la-times fs-2 ms-1"></span></button>
                                         @else
-                                            <button wire:click="openModal({{ $row->id }})" class="btn btn-dark"
+                                            <button wire:click="openModal({{ $row->id_232187 }})" class="btn btn-dark"
                                                 type="button">Edit <span class="las la-edit fs-2 ms-1"></span></button>
                                         @endif
                                     </td>

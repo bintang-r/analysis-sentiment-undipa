@@ -29,13 +29,13 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
             ],
         ])->validateWithBag('updateProfileInformation');
 
-        if ($input['email'] !== $user->email &&
+        if ($input['email'] !== $user->email_232187 &&
             $user instanceof MustVerifyEmail) {
             $this->updateVerifiedUser($user, $input);
         } else {
             $user->forceFill([
-                'name' => $input['name'],
-                'email' => $input['email'],
+                'name_232187' => $input['name'],
+                'email_232187' => $input['email'],
             ])->save();
         }
     }
@@ -48,9 +48,9 @@ class UpdateUserProfileInformation implements UpdatesUserProfileInformation
     protected function updateVerifiedUser(User $user, array $input): void
     {
         $user->forceFill([
-            'name' => $input['name'],
-            'email' => $input['email'],
-            'email_verified_at' => null,
+            'name_232187' => $input['name_232187'],
+            'email_232187' => $input['email_232187'],
+            'email_verified_at_232187' => null,
         ])->save();
 
         $user->sendEmailVerificationNotification();
