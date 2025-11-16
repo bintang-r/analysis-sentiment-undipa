@@ -14,35 +14,35 @@ class UserTableSeeder extends Seeder
     {
         $developer = [
             [
-                'username' => 'Reyhan Renaldy',
-                'email' => 'hansekuy15@gmail.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('reyhan123'),
-                'role' => 'developer',
+                'username_232187' => 'Reyhan Renaldy',
+                'email_232187' => 'hansekuy15@gmail.com',
+                'email_verified_at_232187' => now(),
+                'password_232187' => bcrypt('reyhan123'),
+                'role_232187' => 'developer',
             ],
         ];
 
         $testUser = [
             [
-                'username' => 'Test Admin',
-                'email' => 'testadmin@gmail.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('test123'),
-                'role' => 'admin',
+                'username_232187' => 'Test Admin',
+                'email_232187' => 'testadmin@gmail.com',
+                'email_verified_at_232187' => now(),
+                'password_232187' => bcrypt('test123'),
+                'role_232187' => 'admin',
             ],
             [
-                'username' => 'Test Superadmin',
-                'email' => 'testsuperadmin@gmail.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('test123'),
-                'role' => 'superadmin',
+                'username_232187' => 'Test Superadmin',
+                'email_232187' => 'testsuperadmin@gmail.com',
+                'email_verified_at_232187' => now(),
+                'password_232187' => bcrypt('test123'),
+                'role_232187' => 'superadmin',
             ],
             [
-                'username' => 'Test User',
-                'email' => 'testuser@gmail.com',
-                'email_verified_at' => now(),
-                'password' => bcrypt('test123'),
-                'role' => 'user',
+                'username_232187' => 'Test User',
+                'email_232187' => 'testuser@gmail.com',
+                'email_verified_at_232187' => now(),
+                'password_232187' => bcrypt('test123'),
+                'role_232187' => 'user',
             ],
         ];
 

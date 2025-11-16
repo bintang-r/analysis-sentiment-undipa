@@ -23,7 +23,7 @@ class SocialMediaTableSeeder extends Seeder
             ],
             [
                 'name_232187' => 'instagram',
-                'is_active_23187' => true,
+                'is_active_232187' => true,
             ],
             [
                 'name_232187' => 'facebook',

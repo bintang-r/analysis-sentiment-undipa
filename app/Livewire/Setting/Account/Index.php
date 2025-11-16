@@ -65,29 +65,29 @@ class Index extends Component
 
         try {
             $user->update([
-                'username' => $this->username,
-                'email' => $this->surel,
+                'username_232187' => $this->username_232187,
+                'email_232187' => $this->surel_232187,
             ]);
 
             if ($this->avatar) {
-                if ($user->avatar) {
-                    File::delete(public_path('storage/' . $this->avatar));
+                if ($user->avatar_232187) {
+                    File::delete(public_path('storage/' . $this->avatar_232187));
                 }
 
                 $user->update([
-                    'avatar' => $this->avatar->store('avatar', 'public'),
+                    'avatar_232187' => $this->avatar_232187->store('avatar', 'public'),
                 ]);
             }
 
             if ($this->kataSandi) {
                 $user->update([
-                    'password' => bcrypt($this->kataSandi),
+                    'password_232187' => bcrypt($this->kataSandi),
                 ]);
             }
         } catch (Exception $e) {
             logger()->error(
                 '[setting] ' .
-                    auth()->user()->username .
+                    auth()->user()->username_232187 .
                     ' gagal menyunting akun',
                 [$e->getMessage()]
             );
@@ -114,9 +114,9 @@ class Index extends Component
     {
         $user = User::findOrFail(auth()->user()->id);
 
-        $this->userId = $user->id;
-        $this->username = $user->username;
-        $this->surel = $user->email;
+        $this->userId = $user->id_232187;
+        $this->username = $user->username_232187;
+        $this->surel = $user->email_232187;
 
         $this->avatarUrl = $user->avatarUrl();
     }

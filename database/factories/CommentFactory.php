@@ -18,15 +18,15 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
-        $userIds = User::pluck('id')->toArray();
+        $userIds = User::pluck('id_232187')->toArray();
         $status = config('const.sentiment_status');
-        $socialMediaIds = SocialMedia::pluck('id')->toArray();
+        $socialMediaIds = SocialMedia::pluck('id_232187')->toArray();
 
         return [
-            'user_id'         => $this->faker->randomElement($userIds),
-            'social_media_id' => $this->faker->randomElement($socialMediaIds),
-            'comment'         => $this->faker->sentence(10),
-            'status'          => $this->faker->randomElement($status),
+            'user_id_232187'         => $this->faker->randomElement($userIds),
+            'social_media_id_232187' => $this->faker->randomElement($socialMediaIds),
+            'comment_232187'         => $this->faker->sentence(10),
+            'status_232187'          => $this->faker->randomElement($status),
         ];
     }
 }

@@ -1,4 +1,4 @@
-<div>
+    <div>
     <x-slot name="title">Pengguna Aplikasi</x-slot>
 
     <x-slot name="pageTitle">Pengguna Aplikasi</x-slot>
@@ -52,16 +52,16 @@
                         </th>
 
                         <th>
-                            <x-datatable.column-sort name="Level" wire:click="sortBy('role')" :direction="$sorts['role'] ?? null" />
+                            <x-datatable.column-sort name="Level" wire:click="sortBy('role_232187')" :direction="$sorts['role_232187'] ?? null" />
                         </th>
 
                         <th>
-                            <x-datatable.column-sort name="Email" wire:click="sortBy('email')" :direction="$sorts['email'] ?? null" />
+                            <x-datatable.column-sort name="Email" wire:click="sortBy('email_232187')" :direction="$sorts['email_232187'] ?? null" />
                         </th>
 
                         <th>
-                            <x-datatable.column-sort name="Status" wire:click="sortBy('email_verified_at')"
-                                :direction="$sorts['email_verified_at'] ?? null" />
+                            <x-datatable.column-sort name="Status" wire:click="sortBy('email_verified_at_232187')"
+                                :direction="$sorts['email_verified_at_232187'] ?? null" />
                         </th>
 
                         <th style="width: 10px"></th>
@@ -103,23 +103,23 @@
                                     <span class="avatar avatar-sm px-3 me-3"
                                         style="background-image: url({{ $row->avatarUrl() }})"></span>
 
-                                    @if (is_online($row->id))
+                                    @if (is_online($row->id_232187))
                                         <span class="badge bg-success me-1"></span>
                                     @else
-                                        <span class="badge bg-secondary me-1" title="{{ $row->last_seen_time }}"></span>
+                                        <span class="badge bg-secondary me-1" title="{{ $row->last_seen_time_232187 }}"></span>
                                     @endif
 
-                                    <span>{{ $row->username }}</span>
+                                    <span>{{ $row->username_232187 }}</span>
                                 </div>
                             </td>
 
                             <td>
                                 <span @class([
                                     'badge',
-                                    'bg-orange' => $row->role == 'user',
-                                    'bg-lime' => $row->role == 'admin',
-                                    'bg-green' => $row->role == 'superadmin',
-                                    'bg-blue' => $row->role == 'developer',
+                                    'bg-orange' => $row->role_232187 == 'user',
+                                    'bg-lime' => $row->role_232187 == 'admin',
+                                    'bg-green' => $row->role_232187 == 'superadmin',
+                                    'bg-blue' => $row->role_232187 == 'developer',
                                 ])>{{ $row->role }}</span>
                             </td>
 
@@ -128,14 +128,14 @@
                             <td style="width: 90px" class="px-4">
                                 @if (auth()->user()->role == 'developer')
                                     <button wire:click="changeStatus({{ $row->id }})"
-                                        class="btn btn-{{ $row->email_verified_at ? 'green' : 'dark' }}"
+                                        class="btn btn-{{ $row->email_verified_at_232187 ? 'green' : 'dark' }}"
                                         type="button">
-                                        {{ $row->email_verified_at ? 'Aktif' : 'Nonaktif' }} <i
+                                        {{ $row->email_verified_at_232187 ? 'Aktif' : 'Nonaktif' }} <i
                                             class="las la-redo-alt ms-1 fw-bold fs-2"></i>
                                     </button>
                                 @else
-                                    <span class="badge bg-{{ $row->email_verified_at ? 'lime' : 'red' }}">
-                                        {{ $row->email_verified_at ? 'aktif' : 'nonaktif' }}
+                                    <span class="badge bg-{{ $row->email_verified_at_232187 ? 'lime' : 'red' }}">
+                                        {{ $row->email_verified_at_232187 ? 'aktif' : 'nonaktif' }}
                                     </span>
                                 @endif
                             </td>

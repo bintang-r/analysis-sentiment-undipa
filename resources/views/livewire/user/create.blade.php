@@ -51,7 +51,7 @@
                     @if ($this->avatar)
                         <div class="col-lg-2 col-12 mb-lg-0 mb-2 mt-2 text-center">
                             <span class="avatar avatar-md"
-                                style="background-image: url({{ $this->avatar->temporaryUrl() }})"></span>
+                                style="background-image: url({{ $this->avatar_232187->temporaryUrl() }})"></span>
                         </div>
                     @else
                         <div class="col-lg-2 col-12 mb-lg-0 mb-2 mt-2 text-center">

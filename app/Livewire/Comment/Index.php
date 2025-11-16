@@ -59,9 +59,9 @@ class Index extends Component
         $this->comment = Comment::find($id);
         $this->commentId = $id;
 
-        $this->komentarSentiment = $this->comment->comment;
-        $this->status = $this->comment->status;
-        $this->sosialMedia = $this->comment->social_media_id;
+        $this->komentarSentiment = $this->comment->comment_232187;
+        $this->status = $this->comment->status_232187;
+        $this->sosialMedia = $this->comment->social_media_id_232187;
     }
 
     #[Computed()]
@@ -97,17 +97,17 @@ class Index extends Component
 
             if ($this->comment) {
                 $this->comment->update([
-                    'user_id'         => auth()->id(),
-                    'social_media_id' => $this->sosialMedia,
-                    'status'          => $this->status,
-                    'comment'         => $this->komentarSentiment,
+                    'user_id_232187'         => auth()->id(),
+                    'social_media_id_232187' => $this->sosialMedia,
+                    'status_232187'          => $this->status,
+                    'comment_232187'         => $this->komentarSentiment,
                 ]);
             } else {
                 Comment::create([
-                    'user_id'         => auth()->id(),
-                    'social_media_id' => $this->sosialMedia,
-                    'status'          => $this->status,
-                    'comment'         => $this->komentarSentiment,
+                    'user_id_232187'         => auth()->id(),
+                    'social_media_id_232187' => $this->sosialMedia,
+                    'status_232187'          => $this->status,
+                    'comment_232187'         => $this->komentarSentiment,
                 ]);
             }
 
@@ -117,7 +117,7 @@ class Index extends Component
 
             logger()->error(
                 '[komentar sentimen] ' .
-                    auth()->user()->username .
+                    auth()->user()->username_232187 .
                     ' gagal menambahkan komentar sentimen',
                 [$e->getMessage()]
             );
@@ -148,14 +148,14 @@ class Index extends Component
         $query = Comment::query()
             ->when(!$this->sorts, fn($query) => $query->first())
             ->when($this->filters['search'], function ($query, $search) {
-                $query->where('comment', 'LIKE', "%$search%")
-                    ->orWhere('status', 'LIKE', "%$search%");
+                $query->where('comment_232187', 'LIKE', "%$search%")
+                    ->orWhere('status_232187', 'LIKE', "%$search%");
             })
             ->when($this->filters['status'], function ($query, $status) {
-                $query->where('status', $status);
+                $query->where('status_232187', $status);
             })
             ->when($this->filters['social_media'], function ($query, $sosmed) {
-                $query->where('social_media_id', $sosmed);
+                $query->where('social_media_id_232187', $sosmed);
             })
             ->latest();
 

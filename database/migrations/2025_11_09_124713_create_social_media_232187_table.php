@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('id_232187');
             $table->string('name_232187')->nullable();
             $table->boolean('is_active_232187')->default(true)->nullable();
-            $table->timestamps('update_at_232187');
+            $table->timestamps();
         });
     }
 
