@@ -28,8 +28,7 @@ return new class extends Migration
 
             $table->rememberToken();
             $table->timestamp('created_at_232187')->nullable();
-$table->timestamp('updated_at_232187')->nullable();
-
+            $table->timestamp('updated_at_232187')->nullable();
         });
     }
 

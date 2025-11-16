@@ -20,31 +20,26 @@
 
                                 <div class="ms-2">
                                     <div class="header font-weight-bold">
-                                        @if (isset($login->account_holder))
-                                            <small><b>{{ $login->account_holder->name_232187 ?? '-' }}</b></small>
-                                        @else
-                                            <small><b>{{ $login->username_232187 ?? '-' }}</b></small>
-                                        @endif
+                                        <small><b>{{ $login->username_232187 ?? '-' }}</b></small>
 
-                                        @if (is_online($login->id))
+                                        @if (is_online($login->id_232187))
                                             <span class="badge bg-success ms-1"></span>
                                         @else
                                             <small class="badge bg-secondary ms-1"
-                                                title="{{ $login->last_seen_time }}"></small>
+                                                title="{{ $login->last_seen_time_232187 }}"></small>
                                         @endif
                                     </div>
 
                                     <div class="subheader mb-1">
-                                        {{ \Carbon\Carbon::parse($login->last_login_time)->diffForHumans() ?? '-' }}
+                                        {{ \Carbon\Carbon::parse($login->last_login_time_232187)->diffForHumans() ?? '-' }}
                                     </div>
 
                                     <div class="subheader mb-1">
                                         <span @class([
                                             'badge',
-                                            'bg-green-lt' => $login->role == 'admin',
-                                            'bg-blue-lt' => $login->role == 'guru',
-                                            'bg-yellow-lt' => $login->role == 'siswa',
-                                        ])>{{ $login->role }}</span>
+                                            'bg-green-lt' => $login->role_232187 == 'admin',
+                                            'bg-blue-lt' => $login->role_232187 == 'user',
+                                        ])>{{ $login->role_232187 }}</span>
                                     </div>
                                 </div>
                             </div>
