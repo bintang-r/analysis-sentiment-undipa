@@ -112,7 +112,7 @@ class Index extends Component
 
     public function mount()
     {
-        $user = User::findOrFail(auth()->user()->id);
+        $user = User::findOrFail(auth()->user()->id_232187);
 
         $this->userId = $user->id_232187;
         $this->username = $user->username_232187;

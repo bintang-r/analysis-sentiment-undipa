@@ -20,7 +20,7 @@
 
                     <div class="mt-3">
                         <span
-                            class="badge bg-green-lt">{{ ucwords(str_replace('-', ' ', auth()->user()->role)) ?? '-' }}</span>
+                            class="badge bg-green-lt">{{ ucwords(str_replace('-', ' ', auth()->user()->role_232187)) ?? '-' }}</span>
                     </div>
                 </div>
                 <div class="btn-group" role="group" aria-label="Basic example">
