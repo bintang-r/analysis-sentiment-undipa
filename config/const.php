@@ -7,7 +7,6 @@ return [
     ],
 
     'visible_roles' => [
-        'superadmin',
         'admin',
         'user',
     ],
