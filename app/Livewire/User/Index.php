@@ -25,7 +25,7 @@ class Index extends Component
 
     public function deleteSelected()
     {
-        $users = User::whereIn('id', $this->selected)->get();
+        $users = User::whereIn('id_232187', $this->selected)->get();
         $deleteCount = $users->count();
 
         foreach ($users as $data) {
@@ -69,8 +69,6 @@ class Index extends Component
                 $query->where('username_232187', 'LIKE', "%$search%")
                     ->orWhere('email_232187', 'LIKE', "%$search%");
             })->latest();
-
-        $query = secret_user($query);
 
         return $this->applyPagination($query);
     }

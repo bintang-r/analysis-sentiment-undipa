@@ -30,7 +30,13 @@ class Edit extends Component
         return [
             'username'      => ['required', 'string', 'min:2', 'max:255'],
             'role'          => ['required', 'string', 'min:2', 'max:255', Rule::in(config('const.roles'))],
-            'email'         => ['nullable', 'string', 'min:2', 'unique:users,email,' . $this->userId],
+            'email' => [
+                'nullable',
+                'string',
+                'min:2',
+                Rule::unique('users_232187', 'email_232187')
+                    ->ignore($this->userId, 'id_232187'),
+            ],
             'kataSandi'     => ['nullable', 'string', 'same:konfirmasiKataSandi', Password::default()],
             'avatar'        => ['nullable', 'image', 'max:2048'],
         ];
@@ -40,7 +46,7 @@ class Edit extends Component
     {
         $this->validate();
 
-        $user = User::whereId($this->userId)->first();
+        $user = User::where('id_232187', $this->userId)->first();
 
         try {
             DB::beginTransaction();

@@ -36,7 +36,7 @@ class Index extends Component
 
     public function deleteSelected()
     {
-        $comment = Comment::whereIn('id', $this->selected)->get();
+        $comment = Comment::whereIn('id_232187', $this->selected)->get();
         $deleteCount = $comment->count();
 
         foreach ($comment as $data) {

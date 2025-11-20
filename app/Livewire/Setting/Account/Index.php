@@ -27,7 +27,7 @@ class Index extends Component
         return [
             'username' => [
                 'required',
-                'unique:users,username,' . $this->userId,
+                'unique:users_232187,username_232187,' . $this->userId,
                 'min:3',
                 'max:20',
                 'regex:/\w*$/',
@@ -35,7 +35,7 @@ class Index extends Component
             'surel' => [
                 'required',
                 'email',
-                'unique:users,email,' . $this->userId,
+                'unique:users_232187,email_232187,' . $this->userId,
             ],
             'kataSandi' => ['nullable', 'min:6', 'same:konfirmasiKataSandi'],
             'avatar' => ['nullable', 'file', 'image', 'max:1024'],
