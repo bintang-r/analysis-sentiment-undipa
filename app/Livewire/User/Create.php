@@ -27,7 +27,7 @@ class Create extends Component
         $this->validate([
             'username'      => ['required', 'string', 'min:2', 'max:255'],
             'role'          => ['required', 'string', 'min:2', 'max:255', Rule::in(config('const.roles'))],
-            'email'         => ['required', 'string', 'min:2', 'unique:users,email'],
+            'email'         => ['required', 'string', 'min:2', 'unique:users_232187,email_232187'],
             'kataSandi'     => ['required', 'string', 'same:konfirmasiKataSandi', Password::default()],
             'avatar'        => ['nullable', 'image', 'max:2048'],
         ]);
@@ -48,9 +48,9 @@ class Create extends Component
                 'email_verified_at_232187' => now(),
             ]);
 
-            if ($this->avatar_232187) {
+            if ($this->avatar) {
                 $user->update([
-                    'avatar_232187' => $this->avatar_232187->store('avatars', 'public'),
+                    'avatar_232187' => $this->avatar->store('avatars', 'public'),
                 ]);
             }
 

@@ -32,7 +32,7 @@ class Index extends Component
 
     public function deleteSelected()
     {
-        $socialMedias = SocialMedia::whereIn('id', $this->selected)->get();
+        $socialMedias = SocialMedia::whereIn('id_232187', $this->selected)->get();
         $deleteCount = $socialMedias->count();
 
         foreach ($socialMedias as $data) {

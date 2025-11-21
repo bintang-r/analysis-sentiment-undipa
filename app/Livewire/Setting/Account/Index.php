@@ -5,6 +5,7 @@ namespace App\Livewire\Setting\Account;
 use App\Models\User;
 use Exception;
 use Illuminate\Support\Facades\File;
+use Illuminate\Validation\Rule;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -27,15 +28,17 @@ class Index extends Component
         return [
             'username' => [
                 'required',
-                'unique:users,username,' . $this->userId,
                 'min:3',
                 'max:20',
                 'regex:/\w*$/',
+                Rule::unique('users_232187', 'username_232187')
+                    ->ignore($this->userId, 'id_232187'),
             ],
             'surel' => [
                 'required',
                 'email',
-                'unique:users,email,' . $this->userId,
+                Rule::unique('users_232187', 'email_232187')
+                    ->ignore($this->userId, 'id_232187'),
             ],
             'kataSandi' => ['nullable', 'min:6', 'same:konfirmasiKataSandi'],
             'avatar' => ['nullable', 'file', 'image', 'max:1024'],
@@ -65,17 +68,17 @@ class Index extends Component
 
         try {
             $user->update([
-                'username_232187' => $this->username_232187,
-                'email_232187' => $this->surel_232187,
+                'username_232187' => $this->username,
+                'email_232187' => $this->surel,
             ]);
 
             if ($this->avatar) {
                 if ($user->avatar_232187) {
-                    File::delete(public_path('storage/' . $this->avatar_232187));
+                    File::delete(public_path('storage/' . $user->avatar_232187));
                 }
 
                 $user->update([
-                    'avatar_232187' => $this->avatar_232187->store('avatar', 'public'),
+                    'avatar_232187' => $this->avatar->store('avatar', 'public'),
                 ]);
             }
 
@@ -112,7 +115,7 @@ class Index extends Component
 
     public function mount()
     {
-        $user = User::findOrFail(auth()->user()->id);
+        $user = User::findOrFail(auth()->user()->id_232187);
 
         $this->userId = $user->id_232187;
         $this->username = $user->username_232187;
